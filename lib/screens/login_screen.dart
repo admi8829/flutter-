@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              theme.colorScheme.primary.withOpacity(0.08),
+              theme.colorScheme.primary.withValues(alpha: 0.08),
               theme.colorScheme.surface,
             ],
             begin: Alignment.topCenter,
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: theme.colorScheme.primary.withOpacity(0.1),
+                        color: theme.colorScheme.primary.withValues(alpha: 0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     'ወደ መለያዎ ለመግባት ኢሜይል እና የይለፍ ቃልዎን ያስገቡ',
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium?.copyWith(
-                      color: theme.colorScheme.onSurface.withOpacity(0.6),
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                     ),
                   ),
                   const SizedBox(height: 40),
@@ -233,7 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           'በእነዚህ ይግቡ',
                           style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurface.withOpacity(0.5),
+                            color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                           ),
                         ),
                       ),
@@ -270,7 +270,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Text(
                         'አዲስ ነዎት? ',
-                        style: TextStyle(color: theme.colorScheme.onSurface.withOpacity(0.6)),
+                        style: TextStyle(color: theme.colorScheme.onSurface.withValues(alpha: 0.6)),
                       ),
                       GestureDetector(
                         onTap: () {
@@ -308,7 +308,7 @@ class _LoginScreenState extends State<LoginScreen> {
         width: 130,
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
-          border: Border.all(color: theme.colorScheme.outline.withOpacity(0.2)),
+          border: Border.all(color: theme.colorScheme.outline.withValues(alpha: 0.2)),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(

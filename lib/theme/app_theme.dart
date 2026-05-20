@@ -55,7 +55,7 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: Colors.grey.shade900.withOpacity(0.5),
+      fillColor: Colors.grey.shade900.withValues(alpha: 0.5),
       labelStyle: const TextStyle(fontSize: 14),
       floatingLabelStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
