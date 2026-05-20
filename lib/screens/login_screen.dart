@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: const [
                 Icon(Icons.check_circle, color: Colors.white),
                 SizedBox(width: 8),
-                Text('እንኳን በደህና መጡ! Login Successful.'),
+                Text('Welcome! Login successful.'),
               ],
             ),
             backgroundColor: Colors.green.shade600,
@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   
                   // Title Text
                   Text(
-                    'እንኳን ደህና መጡ', // Welcome in Amharic
+                    'Welcome Back', // Updated to English only
                     textAlign: TextAlign.center,
                     style: theme.textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.bold,
@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'ወደ መለያዎ ለመግባት ኢሜይል እና የይለፍ ቃልዎን ያስገቡ',
+                    'Enter your email and password to access your account',
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      labelText: 'ኢሜይል (Email)',
+                      labelText: 'Email Address',
                       hintText: 'example@gmail.com',
                       prefixIcon: const Icon(Icons.email_outlined),
                       border: OutlineInputBorder(
@@ -133,11 +133,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
-                        return 'እባክዎ ኢሜይል ያስገቡ';
+                        return 'Please enter your email';
                       }
                       final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
                       if (!regex.hasMatch(value)) {
-                        return 'ትክክለኛ ኢሜይል ያስገቡ';
+                        return 'Please enter a valid email';
                       }
                       return null;
                     },
@@ -149,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _passwordController,
                     obscureText: _obscurePassword,
                     decoration: InputDecoration(
-                      labelText: 'የይለፍ ቃል (Password)',
+                      labelText: 'Password',
                       prefixIcon: const Icon(Icons.lock_outline),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -169,10 +169,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'እባክዎ የይለፍ ቃል ያስገቡ';
+                        return 'Please enter your password';
                       }
                       if (value.length < 6) {
-                        return 'የይለፍ ቃል ከ 6 ፊደላት ማነስ የለበትም';
+                        return 'Password must be at least 6 characters long';
                       }
                       return null;
                     },
@@ -186,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         // Action for forgot password
                       },
-                      child: const Text('የይለፍ ቃል ረስተዋል?'),
+                      child: const Text('Forgot password?'),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -214,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             )
                           : const Text(
-                              'ይግቡ (Sign In)',
+                              'Sign In',
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
@@ -231,7 +231,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
-                          'በእነዚህ ይግቡ',
+                          'Or continue with',
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                           ),
@@ -269,7 +269,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'አዲስ ነዎት? ',
+                        'New here? ',
                         style: TextStyle(color: theme.colorScheme.onSurface.withValues(alpha: 0.6)),
                       ),
                       GestureDetector(
@@ -277,7 +277,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           // Action to navigate to Register Screen
                         },
                         child: Text(
-                          'መለያ ፍጠር (Sign Up)',
+                          'Create Account (Sign Up)',
                           style: TextStyle(
                             color: theme.colorScheme.primary,
                             fontWeight: FontWeight.bold,
