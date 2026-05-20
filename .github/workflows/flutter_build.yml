@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Java Development Kit (JDK)
+      # Step 2: Set up Java Development Kit (JDK) - required for build toolchains like Gradle / Android SDK
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -34,28 +34,29 @@ jobs:
       - name: Verify Flutter Installation
         run: flutter --version
 
-      # Step 5: Pull down all specified packages configured in pubspec.yaml
+      # Step 5: Recreate platform specific folders (e.g., android/) for clean native compilation
+      - name: Create Platform Templates
+        run: flutter create --platforms=android .
+
+      # Step 6: Pull down all specified packages configured in pubspec.yaml
       - name: Get Project Dependencies
         run: flutter pub get
 
-      # Step 6: Validate files layout and run Dart static analysis (Linting)
+      # Step 7: Validate files layout and run Dart static analysis (Linting)
       - name: Code Static Analysis
         run: flutter analyze
-        continue-on-error: true # 👈 ማስጠንቀቂያ ቢኖርም ግንባታው ይቀጥላል
 
-      # Step 7: Complete all unit tests in the framework
+      # Step 8: Complete all unit tests in the framework
       - name: Run Test Suites
         run: flutter test
-        continue-on-error: true # 👈 የቴስት ስህተት ቢኖርም ግንባታው ይቀጥላል
 
-      # Step 8: Compile standard production APK outputs
+      # Step 9: Compile standard production APK outputs
       - name: Build Android Release Application (APK)
         run: flutter build apk --release
 
-      # Step 9: Make compiled binary files available as build artifacts
+      # Step 10: Make compiled binary files available as build artifacts
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: flutter-android-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-          
