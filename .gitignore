@@ -1,0 +1,20 @@
+# 1. Block every file and folder in the workplace by default (to keep React/Web code strictly here in AI Studio)
+*
+
+# 2. Allow only Flutter/Dart project directories and configuration configs to be pushed
+!/pubspec.yaml
+!/.gitignore
+!/lib/
+!/lib/**
+!/.github/
+!/.github/**
+
+# 3. Standard temporary caching exclusions specifically for Flutter developers
+**/.dart_tool/
+**/build/
+**/.packages
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.pub/
+**/.pub-cache/
+*.log
