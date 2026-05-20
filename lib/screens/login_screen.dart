@@ -30,6 +30,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
       // Simulating a network login request
       Future.delayed(const Duration(seconds: 2), () {
+        if (!mounted) return;
+
         setState(() {
           _isLoading = false;
         });
@@ -37,14 +39,14 @@ class _LoginScreenState extends State<LoginScreen> {
         // Show elegant toast or success banner
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Row(
-              children: const [
+            content: const Row(
+              children: [
                 Icon(Icons.check_circle, color: Colors.white),
                 SizedBox(width: 8),
                 Text('Welcome! Login successful.'),
               ],
             ),
-            backgroundColor: Colors.green.shade600,
+            backgroundColor: Colors.green,
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
