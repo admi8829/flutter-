@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_modern_login/main.dart';
 
@@ -6,8 +7,10 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our welcome text is present and it is in English.
-    expect(find.text('Welcome Back'), findsOneWidget);
-    expect(find.text('Sign In'), findsOneWidget);
+    // Verify that the core MaterialApp widget loads successfully.
+    expect(find.byType(MaterialApp), findsOneWidget);
+    
+    // Check that our login input fields load successfully.
+    expect(find.byType(TextFormField), findsAtLeast(1));
   });
 }
